@@ -5,9 +5,11 @@ import hello.hellospring.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 @Service
 public class MemberService {
     MemberRepository memberRepository;
@@ -18,7 +20,7 @@ public class MemberService {
 
     }
 
-    /*
+    /**
      * 회원가입
      */
     public Long join(Member member) {
@@ -34,7 +36,7 @@ public class MemberService {
         });
     }
 
-    /*
+    /**
      * 전체 회원 조회
      */
     public List<Member> findMembers() {
